@@ -1,0 +1,17 @@
+{
+  "preset": "ts-jest",
+  "rootDir": "../",
+  "collectCoverage": true,
+  "testRegex": ".*\\.spec\\.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "collectCoverageFrom": [
+    "src/core/useCases/**/*.ts",
+    "src/shared/Mappers/**/*.ts",
+    "src/shared/Utils/**/*.ts"
+  ],
+  "coverageDirectory": "./coverage/unit-coverage",
+  "testEnvironment": "node",
+  "setupFilesAfterEnv": ["<rootDir>/test/jest.setup.ts"]
+}
