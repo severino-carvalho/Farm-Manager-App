@@ -6,8 +6,6 @@ export class ListUsersUseCase implements IUseCase<User[]> {
   constructor(private usersRepository: IUsersRepository) {}
 
   async execute(): Promise<User[]> {
-    const users = await this.usersRepository.findAll();
-
-    return users;
+    return await this.usersRepository.findAll();
   }
 }

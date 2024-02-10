@@ -1,10 +1,16 @@
 import { Module } from '@nestjs/common';
-import { UsersRepository } from './typeorm/UsersRepository';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { datasource } from 'src/config/TypeORM';
+import { UserOrm } from './entities/entities/UserOrm';
+import { UsersRepository } from './typeorm/repositories/UsersRepository';
 
 const repositories = [UsersRepository];
 
 @Module({
-  imports: [],
+  imports: [
+    TypeOrmModule.forRoot(datasource.options),
+    TypeOrmModule.forFeature([UserOrm]),
+  ],
   providers: repositories,
   exports: repositories,
 })

@@ -1,4 +1,6 @@
-import { User } from 'src/core/entities/entities/User';
+import { UserOrm } from 'src/infra/orms/entities/entities/UserOrm';
 import { IGenericRepository } from '../IGenericRepository';
 
-export type IUsersRepository = IGenericRepository<User>;
+export interface IUsersRepository extends IGenericRepository<UserOrm> {
+  findByEmail(email: string): Promise<UserOrm>;
+}
